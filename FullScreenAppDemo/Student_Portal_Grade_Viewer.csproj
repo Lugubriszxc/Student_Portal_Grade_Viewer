@@ -1,0 +1,702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAE01541-BC61-44C5-93A0-CC64731CE3EF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FullScreenAppDemo</RootNamespace>
+    <AssemblyName>FullScreenAppDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\..\guna framework\framwork-main\framwork-main\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.1.9, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\guna framework\framwork-main\framwork-main\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System">
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Academics\Academicslogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\Academicslogin.Designer.cs">
+      <DependentUpon>Academicslogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Academics\AcdemicsRegisterAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\AcdemicsRegisterAccount.Designer.cs">
+      <DependentUpon>AcdemicsRegisterAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Academics\uAcademic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\.Designer.cs">
+      <DependentUpon>uAcademic.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\uAcademicStudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\uAcademicStudentList.Designer.cs">
+      <DependentUpon>uAcademicStudentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccadDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccadDH.Designer.cs">
+      <DependentUpon>AccadDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="db\academicslogin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\assignSubject.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\assign_Instructor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Class_S.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Course.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Dean.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Department.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Instructor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="db\regisGrade.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\RegistrarLogin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\studentBackground.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\Student_Profile.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\S_Subject.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\transactionGrade.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\usertypeLogin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor\frmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructor\frmPrint.Designer.cs">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor\InstructorClearance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructor\InstructorClearance.Designer.cs">
+      <DependentUpon>InstructorClearance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor\InstructorClearanceDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructor\InstructorClearanceDisplay.Designer.cs">
+      <DependentUpon>InstructorClearanceDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perips\instructorClearance.cs" />
+    <Compile Include="perips\printClearance.cs" />
+    <Compile Include="perips\uAcademicClassList.cs" />
+    <Compile Include="perips\uAcademicPendingsClass.cs" />
+    <Compile Include="perips\uStudentLoadSubs.cs" />
+    <Compile Include="selectuser\SelectUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectuser\SelectUserForm.Designer.cs">
+      <DependentUpon>SelectUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Academics\uAcademicPendings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\uAcademicPendings.Designer.cs">
+      <DependentUpon>uAcademicPendings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Academics\uAcademicGradePendings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\uAcademicGradePendings.Designer.cs">
+      <DependentUpon>uAcademicGradePendings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Academics\uAcademicStudentLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\uAcademicStudentLoad.Designer.cs">
+      <DependentUpon>uAcademicStudentLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERdean\uDeanRejectedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\uDeanRejectedForm.Designer.cs">
+      <DependentUpon>uDeanRejectedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERdean\DH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\DH.Designer.cs">
+      <DependentUpon>DH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERdean\DEANSTUDENTGRADE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\DEANSTUDENTGRADE.Designer.cs">
+      <DependentUpon>DEANSTUDENTGRADE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERdean\DeanClassList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\.Designer.cs">
+      <DependentUpon>DeanClassList.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\DeanformDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\DeanformDH.Designer.cs">
+      <DependentUpon>DeanformDH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERdean\loginDean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\loginDean.Designer.cs">
+      <DependentUpon>loginDean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perips\uDeanClassWithRequestsCounter.cs" />
+    <Compile Include="perips\uDeanListGrade.cs" />
+    <Compile Include="USERinstructor\ChangeStudentLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\ChangeStudentLoad.Designer.cs">
+      <DependentUpon>ChangeStudentLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERinstructor\RejectedGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\RejectedGrades.Designer.cs">
+      <DependentUpon>RejectedGrades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERinstructor\GradeSenderInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\GradeSenderInstructor.Designer.cs">
+      <DependentUpon>GradeSenderInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perips\studentLoadwithInst.cs" />
+    <Compile Include="USERinstructor\StudentLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\StudentLoad.Designer.cs">
+      <DependentUpon>StudentLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERinstructor\Class.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\Class.Designer.cs">
+      <DependentUpon>Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Academics\AcademicsDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Academics\AcademicsDashboard.Designer.cs">
+      <DependentUpon>AcademicsDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERinstructor\instructorDSHBRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\instructorDSHBRD.Designer.cs">
+      <DependentUpon>instructorDSHBRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perips\userInWithClassList.cs" />
+    <Compile Include="USERinstructor\loginInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\loginInstructor.Designer.cs">
+      <DependentUpon>loginInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisLogin\frmlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisLogin\frmlogin.Designer.cs">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perips\fPStudentList.cs" />
+    <Compile Include="RegisLogin\REGISTERFRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisLogin\REGISTERFRM.Designer.cs">
+      <DependentUpon>REGISTERFRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subject\assignSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subject\assignSubject.Designer.cs">
+      <DependentUpon>assignSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dean\DeanImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dean\DeanImport.Designer.cs">
+      <DependentUpon>DeanImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="department_course_section\CourseImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="department_course_section\CourseImport.Designer.cs">
+      <DependentUpon>CourseImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERdean\DeanDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERdean\DeanDashboard.Designer.cs">
+      <DependentUpon>DeanDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="department_course_section\DepartmentImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="department_course_section\DepartmentImport.Designer.cs">
+      <DependentUpon>DepartmentImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USERinstructor\InstructorDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERinstructor\InstructorDashboard.Designer.cs">
+      <DependentUpon>InstructorDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor\InstructorImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructor\InstructorImport.Designer.cs">
+      <DependentUpon>InstructorImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perips\assignWithClassSubInstructor.cs" />
+    <Compile Include="perips\classValue.cs" />
+    <Compile Include="perips\courseImps.cs" />
+    <Compile Include="perips\courseValue.cs" />
+    <Compile Include="perips\DeanWithDepartment.cs" />
+    <Compile Include="perips\DepartmentValue.cs" />
+    <Compile Include="perips\instructorValue.cs" />
+    <Compile Include="perips\InstructorWithDept.cs" />
+    <Compile Include="perips\ListtoDataTableConverter.cs" />
+    <Compile Include="perips\sectionWithDepWithCourse.cs" />
+    <Compile Include="perips\studentAssignSub.cs" />
+    <Compile Include="perips\subjectValue.cs" />
+    <Compile Include="Registrar\RegistarFormData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegistarFormData.Designer.cs">
+      <DependentUpon>RegistarFormData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\RegisSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegisSubject.Designer.cs">
+      <DependentUpon>RegisSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\RegisDean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegisDean.Designer.cs">
+      <DependentUpon>RegisDean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\RegisInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegisInstructor.Designer.cs">
+      <DependentUpon>RegisInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrar\RegisDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegisDashboard.Designer.cs">
+      <DependentUpon>RegisDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\RegisStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\RegisStudent.Designer.cs">
+      <DependentUpon>RegisStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="studentPortalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>studentPortalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="studentPortalDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>studentPortalDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Student\UPDATESTUDENT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\UPDATESTUDENT.Designer.cs">
+      <DependentUpon>UPDATESTUDENT.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Academics\Academicslogin.resx">
+      <DependentUpon>Academicslogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academics\AcdemicsRegisterAccount.resx">
+      <DependentUpon>AcdemicsRegisterAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academics\uAcademic.resx">
+      <DependentUpon>uAcademic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academics\uAcademicPendings.resx">
+      <DependentUpon>uAcademicPendings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academics\uAcademicStudentList.resx">
+      <DependentUpon>uAcademicStudentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccadDH.resx">
+      <DependentUpon>AccadDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructor\frmPrint.resx">
+      <DependentUpon>frmPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructor\InstructorClearance.resx">
+      <DependentUpon>InstructorClearance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructor\InstructorClearanceDisplay.resx">
+      <DependentUpon>InstructorClearanceDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptInstructorClearance.rdlc" />
+    <EmbeddedResource Include="selectuser\SelectUserForm.resx">
+      <DependentUpon>SelectUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academics\uAcademicGradePendings.resx">
+      <DependentUpon>uAcademicGradePendings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academics\uAcademicStudentLoad.resx">
+      <DependentUpon>uAcademicStudentLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERdean\uDeanRejectedForm.resx">
+      <DependentUpon>uDeanRejectedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERdean\DH.resx">
+      <DependentUpon>DH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERdean\DEANSTUDENTGRADE.resx">
+      <DependentUpon>DEANSTUDENTGRADE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERdean\DeanClassList.resx">
+      <DependentUpon>DeanClassList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERdean\DeanformDH.resx">
+      <DependentUpon>DeanformDH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERdean\loginDean.resx">
+      <DependentUpon>loginDean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\ChangeStudentLoad.resx">
+      <DependentUpon>ChangeStudentLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\RejectedGrades.resx">
+      <DependentUpon>RejectedGrades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\GradeSenderInstructor.resx">
+      <DependentUpon>GradeSenderInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\StudentLoad.resx">
+      <DependentUpon>StudentLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\Class.resx">
+      <DependentUpon>Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Academics\AcademicsDashboard.resx">
+      <DependentUpon>AcademicsDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\instructorDSHBRD.resx">
+      <DependentUpon>instructorDSHBRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\loginInstructor.resx">
+      <DependentUpon>loginInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisLogin\frmlogin.resx">
+      <DependentUpon>frmlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisLogin\REGISTERFRM.resx">
+      <DependentUpon>REGISTERFRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subject\assignSubject.resx">
+      <DependentUpon>assignSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dean\DeanImport.resx">
+      <DependentUpon>DeanImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="department_course_section\CourseImport.resx">
+      <DependentUpon>CourseImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERdean\DeanDashboard.resx">
+      <DependentUpon>DeanDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="department_course_section\DepartmentImport.resx">
+      <DependentUpon>DepartmentImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERinstructor\InstructorDashboard.resx">
+      <DependentUpon>InstructorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructor\InstructorImport.resx">
+      <DependentUpon>InstructorImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Registrar\RegistarFormData.resx">
+      <DependentUpon>RegistarFormData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegisSubject.resx">
+      <DependentUpon>RegisSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegisDashboard.resx">
+      <DependentUpon>RegisDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegisDean.resx">
+      <DependentUpon>RegisDean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegisInstructor.resx">
+      <DependentUpon>RegisInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\RegisStudent.resx">
+      <DependentUpon>RegisStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\UPDATESTUDENT.resx">
+      <DependentUpon>UPDATESTUDENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="db\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="db\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.db.Class_S.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.db.Course.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.db.Department.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.db.studentBackground.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.db.S_Subject.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.assignWithClassSubInstructor.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.courseImps.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.DeanWithDepartment.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.fPStudentList.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.instructorClearance.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.InstructorWithDept.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.printClearance.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.sectionWithDepWithCourse.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.studentAssignSub.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.studentLoadwithInst.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.uAcademicClassList.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.uAcademicPendingsClass.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.uDeanClassWithRequestsCounter.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.uDeanListGrade.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.userInWithClassList.datasource" />
+    <None Include="Properties\DataSources\FullScreenAppDemo.perips.uStudentLoadSubs.datasource" />
+    <None Include="Properties\DataSources\RegisDean.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="studentPortalDataSet.xsc">
+      <DependentUpon>studentPortalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="studentPortalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>studentPortalDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="studentPortalDataSet.xss">
+      <DependentUpon>studentPortalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="studentPortalDataSet1.xsc">
+      <DependentUpon>studentPortalDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="studentPortalDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>studentPortalDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="studentPortalDataSet1.xss">
+      <DependentUpon>studentPortalDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel1">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="db\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="db\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
